@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.bosonit.formacion.block5properties.Block5PropertiesApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.408 s - in com.bosonit.formacion.block5properties.Block5PropertiesApplicationTests

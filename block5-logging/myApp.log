@@ -1,0 +1,3 @@
+2023-11-17 09:44:54,536 INFO [main] c.b.f.b.Block5LoggingApplication [StartupInfoLogger.java:51] Starting Block5LoggingApplication using Java 21.0.1 with PID 12408 (C:\Users\eduardo.jimeno\IdeaProjects\block5-logging\target\classes started by eduardo.jimeno in C:\Users\eduardo.jimeno\IdeaProjects\block5-logging)
+2023-11-17 09:44:54,540 INFO [main] c.b.f.b.Block5LoggingApplication [SpringApplication.java:638] No active profile set, falling back to 1 default profile: "default"
+2023-11-17 09:44:56,486 INFO [main] c.b.f.b.Block5LoggingApplication [StartupInfoLogger.java:57] Started Block5LoggingApplication in 2.34 seconds (process running for 2.707)
