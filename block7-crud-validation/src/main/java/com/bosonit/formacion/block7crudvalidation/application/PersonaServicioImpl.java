@@ -3,6 +3,7 @@ package com.bosonit.formacion.block7crudvalidation.application;
 import com.bosonit.formacion.block7crudvalidation.controller.dto.PersonaInputDto;
 import com.bosonit.formacion.block7crudvalidation.controller.dto.PersonaOutputDto;
 import com.bosonit.formacion.block7crudvalidation.domain.Persona;
+import com.bosonit.formacion.block7crudvalidation.exceptions.EntityNotFoundException;
 import com.bosonit.formacion.block7crudvalidation.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -23,13 +24,15 @@ public class PersonaServicioImpl implements PersonaServicio{
     }
 
     @Override
-    public PersonaOutputDto getPersonaById(int id) {
-        return personaRepository.findById(id).orElseThrow()
+    public PersonaOutputDto getPersonaById(int id_persona) {
+        return personaRepository.findById(id_persona)
+                .orElseThrow(()-> new EntityNotFoundException("No se encontró la persona con Id: "+id_persona))
                 .personaToPersonaOutputDto();
     }
 
     @Override
     public Iterable<PersonaOutputDto> getPersonasByName(String nombre) {
+
         return personaRepository.findByNameLike("%" + nombre + "%").stream()
                 .map(Persona::personaToPersonaOutputDto)
                 .toList();
@@ -41,5 +44,20 @@ public class PersonaServicioImpl implements PersonaServicio{
         return personaRepository.findAll(pageRequest).getContent()
                 .stream()
                 .map(Persona::personaToPersonaOutputDto).toList();
+    }
+
+    @Override
+    public PersonaOutputDto updatePersona(PersonaInputDto persona) {
+        personaRepository.findById(persona.getId_persona())
+                .orElseThrow(()-> new EntityNotFoundException("No se encontró la persona con Id: "+persona.getId_persona()));
+        return personaRepository.save(new Persona(persona))
+                .personaToPersonaOutputDto();
+    }
+
+    @Override
+    public void deletePersonaById(int id_persona) {
+        personaRepository.findById(id_persona)
+                .orElseThrow(()-> new EntityNotFoundException("No se encontró la persona con Id: "+id_persona));
+        personaRepository.deleteById(id_persona);
     }
 }
