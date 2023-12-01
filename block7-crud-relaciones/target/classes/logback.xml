@@ -1,0 +1,26 @@
+<configuration>
+
+    <!-- Definición del appender de archivo -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>logs/mi-app.log</file>
+        <encoder>
+            <pattern>%date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+        </encoder>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>logs/mi-app.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!-- Logger para Hibernate -->
+    <logger name="org.hibernate.type.descriptor.sql" level="TRACE">
+        <appender-ref ref="FILE"/>
+    </logger>
+
+    <!-- Logger raíz (opcional, depende de lo que desees registrar) -->
+    <root level="INFO">
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

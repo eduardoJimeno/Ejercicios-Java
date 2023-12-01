@@ -1,0 +1,64 @@
+2023-12-01 10:13:49,355 INFO [background-preinit] o.h.v.i.u.Version [Version.java:21] HV000001: Hibernate Validator 8.0.1.Final
+2023-12-01 10:13:49,413 INFO [main] c.b.f.b.Block7CrudRelacionesApplication [StartupInfoLogger.java:50] Starting Block7CrudRelacionesApplication using Java 21.0.1 with PID 2344 (C:\Users\eduardo.jimeno\IdeaProjects\block7-crud-relaciones\target\classes started by eduardo.jimeno in C:\Users\eduardo.jimeno\IdeaProjects\block7-crud-relaciones)
+2023-12-01 10:13:49,413 INFO [main] c.b.f.b.Block7CrudRelacionesApplication [SpringApplication.java:653] No active profile set, falling back to 1 default profile: "default"
+2023-12-01 10:13:50,468 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:139] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-01 10:13:50,554 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 70 ms. Found 4 JPA repository interfaces.
+2023-12-01 10:13:51,179 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port 8080 (http)
+2023-12-01 10:13:51,187 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2023-12-01 10:13:51,190 INFO [main] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2023-12-01 10:13:51,190 INFO [main] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-01 10:13:51,267 INFO [main] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2023-12-01 10:13:51,269 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:296] Root WebApplicationContext: initialization completed in 1784 ms
+2023-12-01 10:13:51,304 INFO [main] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2023-12-01 10:13:51,550 INFO [main] c.z.h.p.HikariPool [HikariPool.java:565] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/prueba user=SA
+2023-12-01 10:13:51,551 INFO [main] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2023-12-01 10:13:51,563 INFO [main] o.s.b.a.h.H2ConsoleAutoConfiguration [H2ConsoleAutoConfiguration.java:88] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/prueba'
+2023-12-01 10:13:51,770 INFO [main] o.h.j.i.u.LogHelper [LogHelper.java:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-01 10:13:51,851 INFO [main] o.h.Version [Version.java:44] HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-01 10:13:51,898 INFO [main] o.h.c.i.RegionFactoryInitiator [RegionFactoryInitiator.java:50] HHH000026: Second-level cache disabled
+2023-12-01 10:13:52,181 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo [SpringPersistenceUnitInfo.java:87] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-01 10:13:53,156 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator [JtaPlatformInitiator.java:58] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-01 10:13:53,225 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:437] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-01 10:13:53,592 INFO [main] o.s.d.j.r.q.QueryEnhancerFactory [QueryEnhancerFactory.java:49] Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-12-01 10:13:54,182 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [JpaBaseConfiguration.java:232] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-01 10:13:54,535 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2023-12-01 10:13:54,561 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:221] Tomcat started on port 8080 (http) with context path ''
+2023-12-01 10:13:54,569 INFO [main] c.b.f.b.Block7CrudRelacionesApplication [StartupInfoLogger.java:56] Started Block7CrudRelacionesApplication in 5.525 seconds (process running for 6.263)
+2023-12-01 10:19:21,100 INFO [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-01 10:19:21,101 INFO [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet [FrameworkServlet.java:532] Initializing Servlet 'dispatcherServlet'
+2023-12-01 10:19:21,102 INFO [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet [FrameworkServlet.java:554] Completed initialization in 1 ms
+2023-12-01 10:20:02,547 INFO [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:650] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-01 10:20:02,766 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2023-12-01 10:20:02,974 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
+2023-12-01 11:06:09,154 INFO [background-preinit] o.h.v.i.u.Version [Version.java:21] HV000001: Hibernate Validator 8.0.1.Final
+2023-12-01 11:06:09,207 INFO [main] c.b.f.b.Block7CrudRelacionesApplication [StartupInfoLogger.java:50] Starting Block7CrudRelacionesApplication using Java 21.0.1 with PID 19244 (C:\Users\eduardo.jimeno\IdeaProjects\block7-crud-relaciones\target\classes started by eduardo.jimeno in C:\Users\eduardo.jimeno\IdeaProjects\block7-crud-relaciones)
+2023-12-01 11:06:09,208 INFO [main] c.b.f.b.Block7CrudRelacionesApplication [SpringApplication.java:653] No active profile set, falling back to 1 default profile: "default"
+2023-12-01 11:06:10,071 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:139] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-12-01 11:06:10,163 INFO [main] o.s.d.r.c.RepositoryConfigurationDelegate [RepositoryConfigurationDelegate.java:208] Finished Spring Data repository scanning in 78 ms. Found 4 JPA repository interfaces.
+2023-12-01 11:06:10,750 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:108] Tomcat initialized with port 8080 (http)
+2023-12-01 11:06:10,757 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Initializing ProtocolHandler ["http-nio-8080"]
+2023-12-01 11:06:10,759 INFO [main] o.a.c.c.StandardService [DirectJDKLog.java:173] Starting service [Tomcat]
+2023-12-01 11:06:10,760 INFO [main] o.a.c.c.StandardEngine [DirectJDKLog.java:173] Starting Servlet engine: [Apache Tomcat/10.1.16]
+2023-12-01 11:06:10,815 INFO [main] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring embedded WebApplicationContext
+2023-12-01 11:06:10,816 INFO [main] o.s.b.w.s.c.ServletWebServerApplicationContext [ServletWebServerApplicationContext.java:296] Root WebApplicationContext: initialization completed in 1548 ms
+2023-12-01 11:06:10,854 INFO [main] c.z.h.HikariDataSource [HikariDataSource.java:110] HikariPool-1 - Starting...
+2023-12-01 11:06:11,073 INFO [main] c.z.h.p.HikariPool [HikariPool.java:565] HikariPool-1 - Added connection conn0: url=jdbc:h2:file:~/prueba user=SA
+2023-12-01 11:06:11,075 INFO [main] c.z.h.HikariDataSource [HikariDataSource.java:123] HikariPool-1 - Start completed.
+2023-12-01 11:06:11,091 INFO [main] o.s.b.a.h.H2ConsoleAutoConfiguration [H2ConsoleAutoConfiguration.java:88] H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:~/prueba'
+2023-12-01 11:06:11,266 INFO [main] o.h.j.i.u.LogHelper [LogHelper.java:31] HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-12-01 11:06:11,352 INFO [main] o.h.Version [Version.java:44] HHH000412: Hibernate ORM core version 6.3.1.Final
+2023-12-01 11:06:11,391 INFO [main] o.h.c.i.RegionFactoryInitiator [RegionFactoryInitiator.java:50] HHH000026: Second-level cache disabled
+2023-12-01 11:06:11,653 INFO [main] o.s.o.j.p.SpringPersistenceUnitInfo [SpringPersistenceUnitInfo.java:87] No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-12-01 11:06:12,596 INFO [main] o.h.e.t.j.p.i.JtaPlatformInitiator [JtaPlatformInitiator.java:58] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2023-12-01 11:06:12,664 INFO [main] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:437] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-12-01 11:06:13,001 INFO [main] o.s.d.j.r.q.QueryEnhancerFactory [QueryEnhancerFactory.java:49] Hibernate is in classpath; If applicable, HQL parser will be used.
+2023-12-01 11:06:13,570 WARN [main] o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration [JpaBaseConfiguration.java:232] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-12-01 11:06:13,902 INFO [main] o.a.c.h.Http11NioProtocol [DirectJDKLog.java:173] Starting ProtocolHandler ["http-nio-8080"]
+2023-12-01 11:06:13,923 INFO [main] o.s.b.w.e.t.TomcatWebServer [TomcatWebServer.java:221] Tomcat started on port 8080 (http) with context path ''
+2023-12-01 11:06:13,932 INFO [main] c.b.f.b.Block7CrudRelacionesApplication [StartupInfoLogger.java:56] Started Block7CrudRelacionesApplication in 5.071 seconds (process running for 5.618)
+2023-12-01 11:06:18,158 INFO [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/] [DirectJDKLog.java:173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-12-01 11:06:18,158 INFO [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:532] Initializing Servlet 'dispatcherServlet'
+2023-12-01 11:06:18,160 INFO [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet [FrameworkServlet.java:554] Completed initialization in 2 ms
+2023-12-01 11:06:35,978 INFO [SpringApplicationShutdownHook] o.s.o.j.LocalContainerEntityManagerFactoryBean [AbstractEntityManagerFactoryBean.java:650] Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-12-01 11:06:36,197 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:350] HikariPool-1 - Shutdown initiated...
+2023-12-01 11:06:36,417 INFO [SpringApplicationShutdownHook] c.z.h.HikariDataSource [HikariDataSource.java:352] HikariPool-1 - Shutdown completed.
