@@ -65,7 +65,7 @@ public class Persona {
                 this.termination_date
         );
     }
-    public PersonaRolOutputDto personaToPersonaRolOutputDto() {
+    public PersonaRolOutputDto personaToPersonaRolOutputDto(){
             return new PersonaRolOutputDto(
                     this.id_persona,
                     this.usuario,

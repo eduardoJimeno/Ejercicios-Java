@@ -6,9 +6,8 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 
-public interface PersonaRepository extends JpaRepository <Persona, Integer>,
-            PagingAndSortingRepository<Persona, Integer>
-            {
-            List<Persona> findByNameLike(String name);
-            }
+public interface PersonaRepository extends JpaRepository <Persona, Integer>, PagingAndSortingRepository<Persona, Integer>
+{
+    List<Persona> findByNameLike(String name);
+}
 

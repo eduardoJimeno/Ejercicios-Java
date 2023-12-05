@@ -39,9 +39,8 @@ public class Asignatura {
     @Column(name = "comentarios")
     private String comments;
 
-    @Column(name = "fecha_inicio")
+    @Column(name = "fecha_inicio", nullable = false)
     @Temporal(TemporalType.DATE)
-    @NotNull(message = "Selecciona una fecha de inicio")
     private Date inital_date;
 
     @Column(name = "fecha_fin")

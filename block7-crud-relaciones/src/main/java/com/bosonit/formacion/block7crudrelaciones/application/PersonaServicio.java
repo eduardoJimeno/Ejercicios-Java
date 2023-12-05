@@ -5,10 +5,10 @@ import com.bosonit.formacion.block7crudrelaciones.controller.dto.PersonaOutputDt
 import com.bosonit.formacion.block7crudrelaciones.controller.dto.PersonaRolOutputDto;
 
 public interface PersonaServicio {
-    PersonaOutputDto addPersona(PersonaInputDto persona);
+    PersonaOutputDto addPersona(PersonaInputDto personaInputDto);
     PersonaRolOutputDto getPersonaById(int id, boolean rol);
     Iterable<PersonaRolOutputDto> getPersonasByName(String name, boolean rol);
     Iterable<PersonaRolOutputDto> getAllPersonas (int pageNumber, int pageSize, boolean rol);
-    PersonaOutputDto updatePersona(PersonaInputDto persona);
+    PersonaOutputDto updatePersona(PersonaInputDto personaInputDto);
     void deletePersonaById (int id);
 }

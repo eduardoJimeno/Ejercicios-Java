@@ -4,19 +4,14 @@ import com.bosonit.formacion.block7crudrelaciones.controller.dto.AsignaturaInput
 import com.bosonit.formacion.block7crudrelaciones.controller.dto.AsignaturaOutputDto;
 import com.bosonit.formacion.block7crudrelaciones.domain.Asignatura;
 import com.bosonit.formacion.block7crudrelaciones.domain.Estudiante;
-import com.bosonit.formacion.block7crudrelaciones.domain.Profesor;
 import com.bosonit.formacion.block7crudrelaciones.exceptions.EntityNotFoundException;
 import com.bosonit.formacion.block7crudrelaciones.exceptions.UnprocessableEntityException;
 import com.bosonit.formacion.block7crudrelaciones.repository.AsignaturaRepository;
 import com.bosonit.formacion.block7crudrelaciones.repository.EstudianteRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
@@ -60,10 +55,10 @@ public class AsignaturaServicioImpl implements AsignaturaServicio{
     }
 
     @Override
-    public AsignaturaOutputDto updateAsignatura(AsignaturaInputDto asignatura) {
-        asignaturaRepository.findById(asignatura.getId_asignatura())
-                .orElseThrow(()-> new EntityNotFoundException("No se encontró la asignatura con Id: "+asignatura.getId_asignatura()));
-        return asignaturaRepository.save(new Asignatura(asignatura))
+    public AsignaturaOutputDto updateAsignatura(AsignaturaInputDto asignaturaInputDto) {
+        asignaturaRepository.findById(asignaturaInputDto.getId_asignatura())
+                .orElseThrow(()-> new EntityNotFoundException("No se encontró la asignatura con Id: "+asignaturaInputDto.getId_asignatura()));
+        return asignaturaRepository.save(new Asignatura(asignaturaInputDto))
                 .asignaturaToAsignaturaOutputDto();
     }
 

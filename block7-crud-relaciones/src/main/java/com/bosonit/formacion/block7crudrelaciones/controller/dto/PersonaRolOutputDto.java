@@ -11,7 +11,8 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonaRolOutputDto  extends PersonaOutputDto{
+public class PersonaRolOutputDto extends PersonaOutputDto{
+
     String rol;
 
     public PersonaRolOutputDto(int idPersona, String usuario, String name, String surname, String companyEmail, String personalEmail, String city, Boolean active, Date createdDate, String imagenUrl, Date terminationDate, String rol) {

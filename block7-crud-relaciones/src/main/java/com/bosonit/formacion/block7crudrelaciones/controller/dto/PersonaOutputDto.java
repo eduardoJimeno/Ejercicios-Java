@@ -1,5 +1,6 @@
 package com.bosonit.formacion.block7crudrelaciones.controller.dto;
 
+import com.bosonit.formacion.block7crudrelaciones.domain.Persona;
 import lombok.*;
 
 import java.util.Date;

@@ -24,14 +24,13 @@ public class Estudiante {
     @GeneratedValue
     private int id_estudiante;
 
-    @Column(name = "horas_por_semana")
-    //@NotBlank(message = "Numero de horas semanales obligatorio.")
+    @Column(name = "horas_por_semana", nullable = false)
     private int num_hours_week;
 
     @Column(name = "comentarios")
     private String comments;
 
-    //@NotBlank(message = "Selecciona una rama para el alumno")
+    @Column(name = "rama", nullable = false)
     private String branch;
 
     @OneToOne

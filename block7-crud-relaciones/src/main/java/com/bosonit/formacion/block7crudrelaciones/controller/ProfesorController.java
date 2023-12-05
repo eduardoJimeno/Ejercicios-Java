@@ -1,7 +1,8 @@
 package com.bosonit.formacion.block7crudrelaciones.controller;
 
-import com.bosonit.formacion.block7crudrelaciones.application.ProfesorServicioImpl;
-import com.bosonit.formacion.block7crudrelaciones.controller.dto.PersonaRolOutputDto;
+import com.bosonit.formacion.block7crudrelaciones.application.ProfesorFeignClient;
+import com.bosonit.formacion.block7crudrelaciones.application.ProfesorServicio;
+
 import com.bosonit.formacion.block7crudrelaciones.controller.dto.ProfesorInputDto;
 import com.bosonit.formacion.block7crudrelaciones.controller.dto.ProfesorOutputDto;
 import com.bosonit.formacion.block7crudrelaciones.exceptions.EntityNotFoundException;
@@ -13,13 +14,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/profesor")
 public class ProfesorController {
     @Autowired
-    ProfesorServicioImpl profesorServicio;
+    ProfesorServicio profesorServicio;
+    @Autowired
+    ProfesorFeignClient profesorFeignClient;
+
 
     @PostMapping
-    public ResponseEntity<ProfesorOutputDto> addProfesorToPersona(
-            @RequestBody ProfesorInputDto profesorInputDto) {
-            ProfesorOutputDto profesorOutputDto = profesorServicio
-                    .addProfesorToPersona(profesorInputDto);
+    public ResponseEntity<ProfesorOutputDto> addProfesorToPersona(@RequestBody ProfesorInputDto profesorInputDto) {
+            ProfesorOutputDto profesorOutputDto = profesorServicio.addProfesorToPersona(profesorInputDto);
             return ResponseEntity.ok(profesorOutputDto);
     }
 
@@ -36,10 +38,21 @@ public class ProfesorController {
     }
 
     @DeleteMapping("/{id_profesor}")
-    public ResponseEntity<String> deletePersonaById(@PathVariable int id_profesor) {
+    public void deletePersonaById(@PathVariable int id_profesor) {
         profesorServicio.deleteProfesorById(id_profesor);
-        return ResponseEntity.ok().body("Persona con id: " + id_profesor + " borrada");
     }
 
-    //Falta update
+    @PutMapping("/{id_profesor}")
+    public ResponseEntity<ProfesorOutputDto> updateProfesor(
+            @PathVariable int id_profesor,
+            @RequestBody(required = false) ProfesorInputDto profesorInputDto) {
+        return ResponseEntity.ok(profesorServicio.updateProfesor( profesorInputDto));
+    }
+
+    @GetMapping("/{id_profesor}")
+    public ResponseEntity<ProfesorOutputDto> getProfesorById(@PathVariable int id_profesor)
+    {
+        return ResponseEntity.ok(profesorFeignClient.getProfesorById(id_profesor));
+    }
+
 }

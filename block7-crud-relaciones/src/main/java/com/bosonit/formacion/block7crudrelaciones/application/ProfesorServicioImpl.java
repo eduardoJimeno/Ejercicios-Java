@@ -2,7 +2,6 @@ package com.bosonit.formacion.block7crudrelaciones.application;
 
 import com.bosonit.formacion.block7crudrelaciones.controller.dto.ProfesorInputDto;
 import com.bosonit.formacion.block7crudrelaciones.controller.dto.ProfesorOutputDto;
-import com.bosonit.formacion.block7crudrelaciones.domain.Estudiante;
 import com.bosonit.formacion.block7crudrelaciones.domain.Persona;
 import com.bosonit.formacion.block7crudrelaciones.domain.Profesor;
 import com.bosonit.formacion.block7crudrelaciones.exceptions.EntityNotFoundException;
@@ -21,29 +20,25 @@ public class ProfesorServicioImpl implements ProfesorServicio{
     PersonaRepository personaRepository;
     @Autowired
     EstudianteRepository estudianteRepository;
+    @Autowired
+    private ProfesorFeignClient profesorFeignClient;
     @Override
     public ProfesorOutputDto addProfesorToPersona(ProfesorInputDto profesorInputDto) {
-        if (estudianteRepository.existsById(profesorInputDto.getId_persona())){
+        if (estudianteRepository.existsById(profesorInputDto.getId_persona()))
+        {
             throw new EntityNotFoundException("La persona ya está registrada como estudiante");
-        } else {
-            Persona persona = personaRepository
-                    .findById(profesorInputDto.getId_persona())
-                    .orElseThrow();
-
-            Profesor profesor = new Profesor(profesorInputDto);
-            profesor.setPersona(persona);
-            return profesorRepository
-                    .save(profesor)
-                    .profesor_PersonaToProfesor_ProfesorOutputDto();
         }
+        Persona persona = personaRepository.findById(profesorInputDto.getId_persona()).orElseThrow();
+
+        Profesor profesor = new Profesor(profesorInputDto);
+        profesor.setPersona(persona);
+        return profesorRepository.save(profesor).profesor_PersonaToProfesor_ProfesorOutputDto();
     }
 
     @Override
-    public ProfesorOutputDto updateProfesor(ProfesorInputDto profesor) {
-        profesorRepository.findById(profesor.getId_profesor())
-                .orElseThrow(()-> new EntityNotFoundException("No se encontró el profesor con Id: "+profesor.getId_profesor()));
-        return profesorRepository.save(new Profesor(profesor))
-                .profesor_PersonaToProfesor_ProfesorOutputDto();
+    public ProfesorOutputDto updateProfesor(ProfesorInputDto profesorInputDto) {
+        profesorRepository.getReferenceById(profesorInputDto.getId_profesor());
+        return profesorRepository.save(new Profesor(profesorInputDto)).profesor_PersonaToProfesor_ProfesorOutputDto();
     }
 
     @Override
@@ -56,16 +51,9 @@ public class ProfesorServicioImpl implements ProfesorServicio{
 
     @Override
     public void deleteProfesorById(int id) {
-        profesorRepository.findById(id)
-                .orElseThrow(()-> new EntityNotFoundException("No se encontró el profesor con Id: "+id));
+        profesorRepository.getReferenceById(id);
         personaRepository.deleteById(id);
     }
 
-   /* @Override
-    public void addEstudianteToProfesor(int id_estudiante, int id_profesor) {
-        Estudiante estudiante = estudianteRepository.findById(id_estudiante).orElseThrow();
-        Profesor profesor = profesorRepository.findById(id_profesor).orElseThrow();
-        profesor.getEstudiante().add(estudiante);
-        profesorRepository.save(profesor);
-    }*/
+
 }

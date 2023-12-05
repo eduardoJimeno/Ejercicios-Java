@@ -26,8 +26,7 @@ public class Profesor {
     @Column(name = "comentarios")
     private String comments;
 
-    @NotBlank(message = "Selecciona materia principal que imparte")
-    @Column(name = "rama")
+    @Column(name = "rama", nullable = false)
     private String branch;
 
     @OneToOne

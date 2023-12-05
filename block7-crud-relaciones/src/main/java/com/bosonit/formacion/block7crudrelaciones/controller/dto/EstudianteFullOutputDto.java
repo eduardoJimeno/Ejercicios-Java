@@ -7,23 +7,15 @@ import lombok.Setter;
 
 import java.util.Date;
 
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EstudianteFullOutputDto {
-    private int id_estudiante;
-    private int num_hours_week;
-    private String comments;
-    private String branch;
-    private int id_persona;
-    private String name;
-    private String surname;
-    private String company_email;
-    private String personal_email;
-    private String city;
-    private Boolean active;
-    private Date created_date;
-    private String imagen_url;
-    private Date termination_date;
+public class EstudianteFullOutputDto extends EstudianteSimpleOutputDto{
+
+   PersonaOutputDto personaOutputDto;
+
+   public EstudianteFullOutputDto(int idEstudiante, int numHoursWeek, String comments, String branch, int idPersona, String name, String surname, String companyEmail, String personalEmail, String city, Boolean active, Date createdDate, String imagenUrl, Date terminationDate) {
+   }
 }
