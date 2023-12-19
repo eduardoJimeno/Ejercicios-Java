@@ -33,9 +33,7 @@ public class PersonaServicioImpl implements PersonaServicio{
 
     @Override
     public Iterable<PersonaOutputDto> getPersonasByName(String nombre) {
-        return personaRepository.findByNameLike("%" + nombre + "%").stream()
-                .map(Persona::personaToPersonaOutputDto)
-                .toList();
+        return personaRepository.findByNameLike("%" + nombre + "%");
     }
 
     @Override
@@ -50,7 +48,10 @@ public class PersonaServicioImpl implements PersonaServicio{
     public PersonaOutputDto updatePersona(PersonaInputDto personaInputDto) {
 
         validarCampos(personaInputDto);
-        Persona persona = personaRepository.findById(personaInputDto.getId_persona()).orElseThrow();
+        Persona persona = personaRepository.findByCompanyEmail(personaInputDto.getCompanyEmail())
+                .orElseThrow(() -> new EntityNotFoundException("Persona no encontrada"));
+
+        // Actualizar los campos según sea necesario
 
         if(personaInputDto.getUsuario() != null){
             persona.setUsuario(personaInputDto.getUsuario());
@@ -64,11 +65,11 @@ public class PersonaServicioImpl implements PersonaServicio{
         if(personaInputDto.getPassword() !=null){
             persona.setPassword(personaInputDto.getPassword());
         }
-        if(personaInputDto.getCompany_email() != null){
-            persona.setCompany_email(personaInputDto.getCompany_email());
+        if(personaInputDto.getCompanyEmail() != null){
+            persona.setCompanyEmail(personaInputDto.getCompanyEmail());
         }
-        if(personaInputDto.getPersonal_email() != null){
-            persona.setPersonal_email(personaInputDto.getPersonal_email());
+        if(personaInputDto.getPersonalEmail() != null){
+            persona.setPersonalEmail(personaInputDto.getPersonalEmail());
         }
         if(personaInputDto.getActive() !=null){
             persona.setActive(personaInputDto.getActive());
@@ -103,7 +104,7 @@ public class PersonaServicioImpl implements PersonaServicio{
         if (personaInputDto.getPassword() == null) {
             throw new UnprocessableEntityException("La contraseña no puede estar vacía");
         }
-        if (personaInputDto.getCompany_email() == null) {
+        if (personaInputDto.getCompanyEmail() == null) {
             throw new UnprocessableEntityException("Escriba el email de su compañía");
         }
         if (personaInputDto.getCity() == null) {

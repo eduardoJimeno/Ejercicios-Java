@@ -14,8 +14,8 @@ public class PersonaOutputDto {
     String usuario;
     String name;
     String surname;
-    String company_email;
-    String personal_email;
+    String companyEmail;
+    String personalEmail;
     String city;
     Boolean active;
     Date created_date;

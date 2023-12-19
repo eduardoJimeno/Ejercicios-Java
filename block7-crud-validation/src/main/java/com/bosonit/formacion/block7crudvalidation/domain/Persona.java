@@ -2,6 +2,7 @@ package com.bosonit.formacion.block7crudvalidation.domain;
 
 import com.bosonit.formacion.block7crudvalidation.controller.dto.PersonaInputDto;
 import com.bosonit.formacion.block7crudvalidation.controller.dto.PersonaOutputDto;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -24,8 +25,9 @@ public class Persona {
     String password;
     String name;
     String surname;
-    String company_email;
-    String personal_email;
+    @Column(unique = true)
+    String companyEmail;
+    String personalEmail;
     String city;
     Boolean active;
     Date created_date;
@@ -33,13 +35,12 @@ public class Persona {
     Date termination_date;
 
     public Persona(PersonaInputDto personaInputDto){
-        this.id_persona=personaInputDto.getId_persona();
         this.usuario=personaInputDto.getUsuario();
         this.password=personaInputDto.getPassword();
         this.name=personaInputDto.getName();
         this.surname=personaInputDto.getSurname();
-        this.company_email=personaInputDto.getCompany_email();
-        this.personal_email=personaInputDto.getPersonal_email();
+        this.companyEmail=personaInputDto.getCompanyEmail();
+        this.personalEmail=personaInputDto.getPersonalEmail();
         this.city=personaInputDto.getCity();
         this.active=personaInputDto.getActive();
         this.created_date=personaInputDto.getCreated_date();
@@ -53,8 +54,8 @@ public class Persona {
             this.usuario,
             this.name,
             this.surname,
-            this.company_email,
-            this.personal_email,
+            this.companyEmail,
+            this.personalEmail,
             this.city,
             this.active,
             this.created_date,
