@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/persona")
 public class PersonaController {
@@ -28,11 +30,11 @@ public class PersonaController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<PersonaDto>> getAllPersonas(
+    public ResponseEntity<List<PersonaDto>> getAllPersonas(
             @RequestParam(defaultValue = "1", required = false) int page,
             @RequestParam(defaultValue = "10", required = false) int size)
     {
-        Page<PersonaDto> personas = personaServicio.getAllPersonas(page, size);
+        List<PersonaDto> personas = personaServicio.getAllPersonas(page, size);
         return ResponseEntity.ok(personas);
     }
 

@@ -11,5 +11,4 @@ public interface PersonaServicio {
     PersonaOutputDto updatePersona(PersonaInputDto persona);
     void deletePersonaById (int id);
 
-
 }

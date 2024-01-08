@@ -4,29 +4,17 @@ import com.bosonit.formacion.block7crudvalidation.application.PersonaServicio;
 import com.bosonit.formacion.block7crudvalidation.controller.dto.PersonaInputDto;
 import com.bosonit.formacion.block7crudvalidation.controller.dto.PersonaOutputDto;
 import com.bosonit.formacion.block7crudvalidation.exceptions.EntityNotFoundException;
-import com.bosonit.formacion.block7crudvalidation.repository.PersonaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
-
 @RestController
+//@RequestMapping("/persona")
 public class Controller {
 
     @Autowired
     PersonaServicio personaServicio;
-    @Autowired
-    PersonaRepository personaRepository;
-    public static final String GREATER_THAN="greater";
-    public static final String LESS_THAN="less";
-    public static final String EQUAL="equal";
+
 
     @CrossOrigin(origins = "https://cdpn.io")
     @PostMapping("/addperson")
@@ -40,13 +28,13 @@ public class Controller {
     }
 
     @GetMapping("persona/nombre/{name}")
-    public ResponseEntity<Iterable<PersonaOutputDto>> getAllPersonasByNameLike(@PathVariable String nombre) {
+    public Iterable<PersonaOutputDto> getAllPersonasByNameLike(@PathVariable String nombre) {
         Iterable<PersonaOutputDto> personas = personaServicio.getPersonasByName(nombre);
 
         if (!personas.iterator().hasNext()) {
             throw new EntityNotFoundException("No se encontraron personas con el nombre: " + nombre);
         }
-        return ResponseEntity.ok(personas);
+        return personas;
     }
 
     @CrossOrigin(origins = "https://cdpn.io")
@@ -75,34 +63,7 @@ public class Controller {
         return ResponseEntity.ok(personaServicio.updatePersona(personaInputDto));
     }
 
-    @GetMapping("persona/customquery")
-    public Page<PersonaOutputDto> findPersonaByManyFields(
-            @RequestParam(required = false) Integer id_persona,
-            @RequestParam(required = false) String usuario,
-            @RequestParam(required = false) String name,
-            @RequestParam(required = false) String surname,
-            @RequestParam(required = false) @DateTimeFormat(pattern = "dd-MM-yyyy") Date created_date,
-            @RequestParam(required = false) String dateCondition,
-            @RequestParam(required = false) String orderBy,
-            @RequestParam int page,
-            @RequestParam(defaultValue = "10") int size) {
-        HashMap<String, Object> data = new HashMap<>();
-        if (id_persona != null) data.put("id_persona", id_persona);
-        if (usuario != null) data.put("usuario", usuario);
-        if (name != null) data.put("name", name);
-        if (surname != null) data.put("surname", surname);
-        if (created_date == null)
-            dateCondition = GREATER_THAN;
-        if (!dateCondition.equals(GREATER_THAN) && !dateCondition.equals(LESS_THAN) && !dateCondition.equals((EQUAL)))
-            dateCondition = GREATER_THAN;
-        if (created_date != null) {
-            data.put("created_date", created_date);
-            data.put("dateCondition", dateCondition);
-        }
 
-        Sort sort = StringUtils.hasText(orderBy) ? Sort.by(orderBy) : Sort.unsorted();
-        Pageable pageable = PageRequest.of(page - 1, size, sort);
 
-        return personaRepository.findPersonaByManyFields(data, pageable);
-    }
+
 }
