@@ -74,17 +74,17 @@ public class PersonaServicioImpl implements PersonaServicio{
         if(personaInputDto.getActive() !=null){
             persona.setActive(personaInputDto.getActive());
         }
-        if(personaInputDto.getCreated_date() != null){
-            persona.setCreated_date(personaInputDto.getCreated_date());
+        if(personaInputDto.getCreatedDate() != null){
+            persona.setCreatedDate(personaInputDto.getCreatedDate());
         }
         if(personaInputDto.getCity() != null){
             persona.setCity(personaInputDto.getCity());
         }
-        if(personaInputDto.getImagen_url() !=null){
-            persona.setImagen_url(personaInputDto.getImagen_url());
+        if(personaInputDto.getImagenUrl() !=null){
+            persona.setImagenUrl(personaInputDto.getImagenUrl());
         }
-        if(personaInputDto.getTermination_date() != null){
-            persona.setTermination_date(personaInputDto.getTermination_date());
+        if(personaInputDto.getTerminationDate() != null){
+            persona.setTerminationDate(personaInputDto.getTerminationDate());
         }
 
         return personaRepository.save(persona).personaToPersonaOutputDto();
@@ -110,7 +110,7 @@ public class PersonaServicioImpl implements PersonaServicio{
         if (personaInputDto.getCity() == null) {
             throw new UnprocessableEntityException("El campo ciudad no puede ser nulo");
         }
-        if (personaInputDto.getCreated_date() == null) {
+        if (personaInputDto.getCreatedDate() == null) {
             throw new UnprocessableEntityException("El campo de fecha de creación no puede ser nulo");
         }
     }

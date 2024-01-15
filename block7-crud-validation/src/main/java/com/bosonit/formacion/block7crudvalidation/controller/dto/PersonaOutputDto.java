@@ -4,12 +4,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class PersonaOutputDto {
+public class PersonaOutputDto implements Serializable {
     int id_persona;
     String usuario;
     String name;
@@ -17,8 +18,9 @@ public class PersonaOutputDto {
     String companyEmail;
     String personalEmail;
     String city;
+    Boolean admin;
     Boolean active;
-    Date created_date;
-    String imagen_url;
-    Date termination_date;
+    Date createdDate;
+    String imagenUrl;
+    Date terminationDate;
 }

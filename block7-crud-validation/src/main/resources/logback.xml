@@ -1,0 +1,16 @@
+<configuration>
+
+    <logger name="com.bosonit.formacion.block7crudvalidation.security.JWTAuthorizationFilter" level="DEBUG" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- enciende el color en la consola -->
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="debug">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
