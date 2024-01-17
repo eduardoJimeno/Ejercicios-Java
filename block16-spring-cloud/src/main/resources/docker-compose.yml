@@ -1,0 +1,26 @@
+services:
+  mysql:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=betagwe
+      - MYSQL_DATABASE=viajes
+      - MYSQL_USER=eduardo
+      - MYSQL_PASSWORD=betagwe
+    volumes:
+      - mysql_crud_data:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8081:80
+    environment:
+      - PMA_HOST=mysql
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_crud_data:
+
