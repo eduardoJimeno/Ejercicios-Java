@@ -2,6 +2,8 @@ package com.formacion.bosonit.examen_JPA_cascada.domain;
 
 import com.formacion.bosonit.examen_JPA_cascada.controller.dto.FacturaInputDto;
 import com.formacion.bosonit.examen_JPA_cascada.controller.dto.FacturaOutputDto;
+import com.formacion.bosonit.examen_JPA_cascada.controller.dto.LineaInputDto;
+import com.formacion.bosonit.examen_JPA_cascada.controller.dto.LineaOutputDto;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +11,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Data
@@ -32,23 +35,27 @@ public class Factura {
         this.importeFactura = facturaInputDto.getImporteFactura();
     }
 
-    public FacturaOutputDto facturaToFacturaOutputDto(){
+    public FacturaOutputDto facturaToFacturaOutputDto() {
+        List<LineaOutputDto> lineasOutput = lineasFactura
+                .stream()
+                .map(Linea::lineaToLineaOutputDto)
+                .collect(Collectors.toList());
+
         return new FacturaOutputDto(
                 this.idFactura,
-                this.cliente.getIdCliente(),
+                (this.cliente != null) ? this.cliente.getIdCliente() : 0,
                 this.importeFactura,
-                this.lineasFactura
-                );
+                lineasOutput
+        );
     }
 
     public void addLinea(Linea linea) {
         linea.setFactura(this);
         this.lineasFactura.add(linea);
     }
+
     public void addCliente(Cliente cliente) {
         this.cliente = cliente;
         cliente.getFacturas().add(this);
     }
-
-
 }

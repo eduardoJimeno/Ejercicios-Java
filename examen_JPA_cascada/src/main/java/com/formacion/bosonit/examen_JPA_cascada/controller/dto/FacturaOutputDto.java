@@ -14,5 +14,5 @@ public class FacturaOutputDto {
     private int idFactura;
     private int idCliente;
     private Double importeFactura;
-    private List<Linea> lineasFactura;
+    private List<LineaOutputDto> lineasFactura;
 }

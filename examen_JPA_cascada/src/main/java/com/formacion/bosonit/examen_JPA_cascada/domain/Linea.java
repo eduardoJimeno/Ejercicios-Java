@@ -31,6 +31,12 @@ public class Linea {
         this.precio = lineaInputDto.getPrecio();
     }
 
+    public void addLinea(LineaInputDto lineaInputDto) {
+        this.nombreProducto = lineaInputDto.getNombreProducto();
+        this.cantidad = lineaInputDto.getCantidad();
+        this.precio = lineaInputDto.getPrecio();
+    }
+
     public LineaOutputDto lineaToLineaOutputDto(){
         return new LineaOutputDto(
                 this.idLinea,

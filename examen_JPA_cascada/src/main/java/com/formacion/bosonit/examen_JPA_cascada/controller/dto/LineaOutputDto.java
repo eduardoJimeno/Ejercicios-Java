@@ -14,4 +14,5 @@ public class LineaOutputDto {
     private Double cantidad;
     private Double precio;
 
+
 }
