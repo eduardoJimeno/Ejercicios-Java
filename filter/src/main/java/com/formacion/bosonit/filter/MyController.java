@@ -12,7 +12,7 @@ public class MyController {
     public String addParametros(HttpServletRequest request){
         String parametros = (String) request.getAttribute("parametros");
 
-        return "Me has añadido una " + parametros;
+        return "Me has añadido un " + parametros;
     }
     @GetMapping("/{endPoint}/{parametro}={path}")
     public String miEndpoint(
@@ -22,5 +22,17 @@ public class MyController {
         return "Has llamado al endpoint \"" + endPoint +
                 "\" con parámetro \"" + parametro +
                 "\" y path \"" + path + "\"";
+    }
+
+    @GetMapping("/saluda/name")
+    public String redirigeASaluda() {
+        // Redirigir internamente al método con la anotación @GetMapping("/saluda")
+        return saluda();
+    }
+
+    @GetMapping("/saluda")
+    public String saluda() {
+        // Lógica del endpoint "/saluda"
+        return "Hola desde el endpoint /saluda";
     }
 }
