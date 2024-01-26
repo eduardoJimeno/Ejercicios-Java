@@ -18,8 +18,9 @@ public class PersonaInputDto {
     String company_email;
     String personal_email;
     String city;
+    Boolean admin;
     Boolean active;
-    Date created_date;
-    String imagen_url;
-    Date termination_date;
+    Date createdDate;
+    String imagenUrl;
+    Date terminationDate;
 }

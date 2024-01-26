@@ -19,7 +19,7 @@ public class Persona {
 
     @Id
     @GeneratedValue
-    int id_persona;
+    int idPersona;
     String usuario;
     String password;
     String name;
@@ -27,10 +27,12 @@ public class Persona {
     String company_email;
     String personal_email;
     String city;
+    @Column(nullable = false)
+    Boolean admin;
     Boolean active;
-    Date created_date;
-    String imagen_url;
-    Date termination_date;
+    Date createdDate;
+    String imagenUrl;
+    Date terminationDate;
 
     public Persona(PersonaInputDto personaInputDto){
         this.id_persona=personaInputDto.getId_persona();
@@ -41,25 +43,27 @@ public class Persona {
         this.company_email=personaInputDto.getCompany_email();
         this.personal_email=personaInputDto.getPersonal_email();
         this.city=personaInputDto.getCity();
+        this.admin=personaInputDto.getAdmin();
         this.active=personaInputDto.getActive();
-        this.created_date=personaInputDto.getCreated_date();
-        this.imagen_url=personaInputDto.getImagen_url();
-        this.termination_date=personaInputDto.getTermination_date();
+        this.createdDate=personaInputDto.getCreatedDate();
+        this.imagenUrl=personaInputDto.getImagenUrl();
+        this.terminationDate=personaInputDto.getTerminationDate();
     }
 
     public PersonaOutputDto personaToPersonaOutputDto(){
         return new PersonaOutputDto(
-            this.id_persona,
+            this.idPersona,
             this.usuario,
             this.name,
             this.surname,
             this.company_email,
             this.personal_email,
             this.city,
+            this.admin,
             this.active,
-            this.created_date,
-            this.imagen_url,
-            this.termination_date
+            this.createdDate,
+            this.imagenUrl,
+            this.terminationDate
         );
     }
 
